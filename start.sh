@@ -10,3 +10,5 @@ pid=$(cat maintainer.pid)
 echo $pid
 
 echo 'success ful'
+
+#docker run -m 2g -it -d --privileged -p 33006:3306 twjitm:test /bin/sh >maintainer.pid
