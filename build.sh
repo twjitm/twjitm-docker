@@ -1,2 +1,2 @@
-docker build -f Dockerfile -t twjitm:test .
+docker build -f Dockerfile -t twjitm:8.0 .
 
