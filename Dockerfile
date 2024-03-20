@@ -5,11 +5,18 @@ COPY conf/supervisord.d /etc/supervisord.d
 COPY conf/mysql/mysql-community.repo /etc/yum.repos.d/
 COPY conf/mysql/my.cnf /conf
 
+#yum install -y epel-release yum-utils
+#yum install -y http://rpms.remirepo.net/enterprise/remi-release-7.rpm
+#yum-config-manager --enable remi-php81
+#yum install -y php php-common php-opcache php-cli php-curl php-pecl-igbinary php-pecl-redis5 php-pecl-swoole php-pecl-apcu php-fpm php-mcrypt php-mbstring php-gd php-pecl-xhprof php-json php-pecl-imagick php-xml php-pecl-zip php-pecl-yaml php-fpm php-pecl-swoole php-bcmath
+#yum install -y nginx vim htop net-tools svn rsync sudo openssl openssh-server openssh-clients lrzsz fish dnf crontabs dstat wget
+
 RUN set -x \
     && mkdir -p /mnt/logs/supervisor/ \
     && yum -y update \
+    && yum install -y epel-release yum-utils \
     && yum -y install http://rpms.remirepo.net/enterprise/remi-release-7.rpm \
-    && yum-config-manager --enable remi-php80 \
+    && yum-config-manager --enable remi-php81 \
     && yum-config-manager --enable mysql80-community \
     && yum -y install --nogpgcheck \
     mysql-community-server -x Percona-Server-shared-56 \
