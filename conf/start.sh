@@ -1,4 +1,4 @@
 #! /bin/sh
 
-/usr/bin/supervisord -n -c /etc/supervisord.conf
+nohup /usr/bin/supervisord -n -c /etc/supervisord.conf > /dev/null 2>&1 &
 
