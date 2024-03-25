@@ -60,6 +60,7 @@ RUN set -x \
         mysql \
         redis \
         vim \
+        zsh \
     && /bin/cp -rf /conf/my.cnf /etc/my.cnf \
     && /bin/cp -rf /conf/nginx/nginx.conf /etc/nginx/nginx.conf \
     && /bin/cp -rf /conf/nginx/fastcgi.conf /etc/nginx/fastcgi.conf \
