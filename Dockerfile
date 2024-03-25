@@ -72,8 +72,13 @@ RUN set -x \
     && yum clean all \
     && rm -rf /var/cache/yum/* \
     && chown -R mysql:mysql /var/lib/mysql \
-    && mysql_install_db
+    && mysql_install_db \
+    && mkdir -p /data/code/ \
+    && mkdir -p /data/logs/ \
+    && touch /data/logs/php_error.log \
+    && chown -R nginx:nginx /data/logs/php_error.log \
+    && chown -R nginx:nginx /data/code/
 
 EXPOSE 80 443
-CMD ["/start.sh"]
+CMD ["sh /start.sh"]
 CMD ["/usr/bin/supervisord", "-n"]
