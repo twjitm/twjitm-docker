@@ -61,6 +61,7 @@ RUN set -x \
         redis \
         vim \
         zsh \
+        java-1.8.0-openjdk-devel.x86_64 \
     && /bin/cp -rf /conf/my.cnf /etc/my.cnf \
     && /bin/cp -rf /conf/nginx/nginx.conf /etc/nginx/nginx.conf \
     && /bin/cp -rf /conf/nginx/fastcgi.conf /etc/nginx/fastcgi.conf \
@@ -79,6 +80,9 @@ RUN set -x \
     && touch /data/logs/php_error.log \
     && chown -R nginx:nginx /data/logs/php_error.log \
     && chown -R nginx:nginx /data/code/
+
+ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64
+ENV PATH ${JAVA_HOME}/bin:$PATH
 
 EXPOSE 80 443
 CMD ["sh /start.sh"]

@@ -1,2 +1,2 @@
-docker build -f Dockerfile -t twjitm/twjitm:8.1 .
+docker build -f Dockerfile -t twjitm/twjitm:8.1.java .
 
