@@ -13,6 +13,6 @@ IMAGES=twjitm/twjitm:8.1
 docker run -m 2g -it -d --privileged --name 'admin_gm_'${PORT} -p "${MONGO_PORT}":27017 -p "${WEB_PORT}":8080 -p "${FTP_PORT}":22 ${IMAGES} /bin/sh >maintainer.pid
 pid=$(cat maintainer.pid)
 echo $pid
-
+docker cp pki/nginx/dcat.conf ${pid}:/etc/nginx/conf.d/
 echo 'success ful'
 
